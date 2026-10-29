@@ -66,6 +66,19 @@
 #define APPLE2_WRDATA_PIN (3)  // SCL // IDC 18
 #define APPLE2_PROTECT_PIN (2) // SDA // IDC 20
 #define APPLE2_INDEX_PIN  (A3)
+#elif defined(ARDUINO_RASPBERRY_PI_PICO)
+// Disk II on the GPIOs the PC drive pins above leave free, so one Pico serves
+// both. RDDATA and PROTECT come from the drive at 5V: level shift them.
+#define APPLE2_PHASE1_PIN (16)  // IDC 2
+#define APPLE2_PHASE2_PIN (17)  // IDC 4
+#define APPLE2_PHASE3_PIN (18)  // IDC 6
+#define APPLE2_PHASE4_PIN (19)  // IDC 8
+#define APPLE2_WRGATE_PIN (26)  // IDC 10
+#define APPLE2_ENABLE_PIN (20)  // IDC 14
+#define APPLE2_RDDATA_PIN (21)  // IDC 16
+#define APPLE2_WRDATA_PIN (27)  // IDC 18
+#define APPLE2_PROTECT_PIN (22) // IDC 20
+#define APPLE2_INDEX_PIN  (-1)  // no index sensor yet; 28 is free for one
 #endif
 
 #if defined(ARDUINO_ADAFRUIT_FLOPPSY_RP2350)
